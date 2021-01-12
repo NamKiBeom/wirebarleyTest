@@ -128,6 +128,16 @@
                             <constraint firstItem="H27-27-7fL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="niE-EU-aUG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countryPicker" destination="H27-27-7fL" id="jGI-ij-Gbe"/>
+                        <outlet property="exchangeRateLabel" destination="26r-g6-IdX" id="zFF-8D-mLQ"/>
+                        <outlet property="moneyTextField" destination="Bla-Go-8Cj" id="LSe-9L-Q0Q"/>
+                        <outlet property="moneyUnitLabel" destination="mmX-gr-SdA" id="tu7-eh-CM8"/>
+                        <outlet property="recipientCountryLabel" destination="Jld-kP-giE" id="vFE-YR-hje"/>
+                        <outlet property="remittanceCountryLabel" destination="p05-Xe-ozw" id="4JW-N5-SRf"/>
+                        <outlet property="resultLabel" destination="uBg-CW-86N" id="gFJ-D5-5qu"/>
+                        <outlet property="timeLabel" destination="a6b-3R-G9X" id="vyn-4w-NeD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
