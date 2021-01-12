@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7716C453578CDEFB5F3BD54B /* Pods_WirebarleyTest_WirebarleyTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD67EB54436C025329165729 /* Pods_WirebarleyTest_WirebarleyTestUITests.framework */; };
+		A925A297A0FFB92CB1EE5FDE /* Pods_WirebarleyTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07029B241122089311B032D4 /* Pods_WirebarleyTestTests.framework */; };
+		B92E13129F9FFB6F142832B6 /* Pods_WirebarleyTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555AFA8C8273CA6BF4B37E3B /* Pods_WirebarleyTest.framework */; };
 		C18AAE2225AD61FA00730F30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AAE2125AD61FA00730F30 /* AppDelegate.swift */; };
 		C18AAE2425AD61FA00730F30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AAE2325AD61FA00730F30 /* SceneDelegate.swift */; };
 		C18AAE2625AD61FA00730F30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AAE2525AD61FA00730F30 /* ViewController.swift */; };
@@ -35,6 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07029B241122089311B032D4 /* Pods_WirebarleyTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WirebarleyTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24B1DCF92252C0FB12AACD69 /* Pods-WirebarleyTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WirebarleyTestTests.debug.xcconfig"; path = "Target Support Files/Pods-WirebarleyTestTests/Pods-WirebarleyTestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		304F74376F3E263076B66260 /* Pods-WirebarleyTest-WirebarleyTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WirebarleyTest-WirebarleyTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-WirebarleyTest-WirebarleyTestUITests/Pods-WirebarleyTest-WirebarleyTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4A195B32F631485A3F440FD3 /* Pods-WirebarleyTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WirebarleyTest.release.xcconfig"; path = "Target Support Files/Pods-WirebarleyTest/Pods-WirebarleyTest.release.xcconfig"; sourceTree = "<group>"; };
+		555AFA8C8273CA6BF4B37E3B /* Pods_WirebarleyTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WirebarleyTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58A61082B0D59FA7333683FF /* Pods-WirebarleyTest-WirebarleyTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WirebarleyTest-WirebarleyTestUITests.release.xcconfig"; path = "Target Support Files/Pods-WirebarleyTest-WirebarleyTestUITests/Pods-WirebarleyTest-WirebarleyTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5DE4695BDC5F2AF28B099DE6 /* Pods-WirebarleyTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WirebarleyTestTests.release.xcconfig"; path = "Target Support Files/Pods-WirebarleyTestTests/Pods-WirebarleyTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		C18AAE1E25AD61FA00730F30 /* WirebarleyTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WirebarleyTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18AAE2125AD61FA00730F30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C18AAE2325AD61FA00730F30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +59,8 @@
 		C18AAE3F25AD61FD00730F30 /* WirebarleyTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WirebarleyTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18AAE4325AD61FD00730F30 /* WirebarleyTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WirebarleyTestUITests.swift; sourceTree = "<group>"; };
 		C18AAE4525AD61FD00730F30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECA8431A48D20058E75F4F93 /* Pods-WirebarleyTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WirebarleyTest.debug.xcconfig"; path = "Target Support Files/Pods-WirebarleyTest/Pods-WirebarleyTest.debug.xcconfig"; sourceTree = "<group>"; };
+		FD67EB54436C025329165729 /* Pods_WirebarleyTest_WirebarleyTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WirebarleyTest_WirebarleyTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B92E13129F9FFB6F142832B6 /* Pods_WirebarleyTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A925A297A0FFB92CB1EE5FDE /* Pods_WirebarleyTestTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7716C453578CDEFB5F3BD54B /* Pods_WirebarleyTest_WirebarleyTestUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4122B7C44FEBFD88DFBDC77E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ECA8431A48D20058E75F4F93 /* Pods-WirebarleyTest.debug.xcconfig */,
+				4A195B32F631485A3F440FD3 /* Pods-WirebarleyTest.release.xcconfig */,
+				304F74376F3E263076B66260 /* Pods-WirebarleyTest-WirebarleyTestUITests.debug.xcconfig */,
+				58A61082B0D59FA7333683FF /* Pods-WirebarleyTest-WirebarleyTestUITests.release.xcconfig */,
+				24B1DCF92252C0FB12AACD69 /* Pods-WirebarleyTestTests.debug.xcconfig */,
+				5DE4695BDC5F2AF28B099DE6 /* Pods-WirebarleyTestTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		565A65DC9128B32B36595680 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				555AFA8C8273CA6BF4B37E3B /* Pods_WirebarleyTest.framework */,
+				FD67EB54436C025329165729 /* Pods_WirebarleyTest_WirebarleyTestUITests.framework */,
+				07029B241122089311B032D4 /* Pods_WirebarleyTestTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C18AAE1525AD61FA00730F30 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +122,8 @@
 				C18AAE3725AD61FC00730F30 /* WirebarleyTestTests */,
 				C18AAE4225AD61FD00730F30 /* WirebarleyTestUITests */,
 				C18AAE1F25AD61FA00730F30 /* Products */,
+				4122B7C44FEBFD88DFBDC77E /* Pods */,
+				565A65DC9128B32B36595680 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C18AAE4825AD61FD00730F30 /* Build configuration list for PBXNativeTarget "WirebarleyTest" */;
 			buildPhases = (
+				B2B3447ECE2EDCB660D1804D /* [CP] Check Pods Manifest.lock */,
 				C18AAE1A25AD61FA00730F30 /* Sources */,
 				C18AAE1B25AD61FA00730F30 /* Frameworks */,
 				C18AAE1C25AD61FA00730F30 /* Resources */,
+				D7280967BCD11E37801C90A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C18AAE4B25AD61FD00730F30 /* Build configuration list for PBXNativeTarget "WirebarleyTestTests" */;
 			buildPhases = (
+				541679C8E7CBCAD2C7BD8E94 /* [CP] Check Pods Manifest.lock */,
 				C18AAE3025AD61FC00730F30 /* Sources */,
 				C18AAE3125AD61FC00730F30 /* Frameworks */,
 				C18AAE3225AD61FC00730F30 /* Resources */,
+				5D1AE4E30090EFA56829188F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,9 +215,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C18AAE4E25AD61FD00730F30 /* Build configuration list for PBXNativeTarget "WirebarleyTestUITests" */;
 			buildPhases = (
+				4B17C9445196725A04D5A7BA /* [CP] Check Pods Manifest.lock */,
 				C18AAE3B25AD61FD00730F30 /* Sources */,
 				C18AAE3C25AD61FD00730F30 /* Frameworks */,
 				C18AAE3D25AD61FD00730F30 /* Resources */,
+				E007BFD90DDEACE035C4B3C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,6 +299,126 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B17C9445196725A04D5A7BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WirebarleyTest-WirebarleyTestUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		541679C8E7CBCAD2C7BD8E94 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WirebarleyTestTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D1AE4E30090EFA56829188F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WirebarleyTestTests/Pods-WirebarleyTestTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WirebarleyTestTests/Pods-WirebarleyTestTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WirebarleyTestTests/Pods-WirebarleyTestTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2B3447ECE2EDCB660D1804D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WirebarleyTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7280967BCD11E37801C90A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WirebarleyTest/Pods-WirebarleyTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WirebarleyTest/Pods-WirebarleyTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WirebarleyTest/Pods-WirebarleyTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E007BFD90DDEACE035C4B3C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WirebarleyTest-WirebarleyTestUITests/Pods-WirebarleyTest-WirebarleyTestUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WirebarleyTest-WirebarleyTestUITests/Pods-WirebarleyTest-WirebarleyTestUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WirebarleyTest-WirebarleyTestUITests/Pods-WirebarleyTest-WirebarleyTestUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C18AAE1A25AD61FA00730F30 /* Sources */ = {
@@ -433,6 +600,7 @@
 		};
 		C18AAE4925AD61FD00730F30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECA8431A48D20058E75F4F93 /* Pods-WirebarleyTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -452,6 +620,7 @@
 		};
 		C18AAE4A25AD61FD00730F30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A195B32F631485A3F440FD3 /* Pods-WirebarleyTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -471,6 +640,7 @@
 		};
 		C18AAE4C25AD61FD00730F30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24B1DCF92252C0FB12AACD69 /* Pods-WirebarleyTestTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -493,6 +663,7 @@
 		};
 		C18AAE4D25AD61FD00730F30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DE4695BDC5F2AF28B099DE6 /* Pods-WirebarleyTestTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -515,6 +686,7 @@
 		};
 		C18AAE4F25AD61FD00730F30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 304F74376F3E263076B66260 /* Pods-WirebarleyTest-WirebarleyTestUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -535,6 +707,7 @@
 		};
 		C18AAE5025AD61FD00730F30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58A61082B0D59FA7333683FF /* Pods-WirebarleyTest-WirebarleyTestUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
