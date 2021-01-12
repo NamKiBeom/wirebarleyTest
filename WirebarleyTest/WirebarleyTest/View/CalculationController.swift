@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController {
+class CalculationController: UIViewController {
     @IBOutlet weak var remittanceCountryLabel: UILabel!
     @IBOutlet weak var recipientCountryLabel: UILabel!
     @IBOutlet weak var exchangeRateLabel: UILabel!
@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var countryPicker: UIPickerView!
     
     private let countrys = ["한국(KRW)", "일본(JPY)", "필리핀(PHP)"]
-    private var sample: Observable<Int>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +28,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension CalculationController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
