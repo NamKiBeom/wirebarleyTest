@@ -9,9 +9,13 @@ import Foundation
 import RxSwift
 
 protocol CalculationViewModelType {
-    
+    var quotes: Observable<Quote> { get }
 }
 
-class CalculationViewModel {
+class CalculationViewModel: CalculationViewModelType {
+    var quotes: Observable<Quote>
     
+    init(repository: RatesFetchable = CalculationRepository()) {
+        quotes = repository.fetchRates()
+    }
 }
