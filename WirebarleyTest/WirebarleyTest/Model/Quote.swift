@@ -8,7 +8,7 @@
 import Foundation
 
 struct Quote: Codable {
-    let USDKRW: String
-    let USDJPY: String
-    let USDPHP: String
+    let USDKRW: Double
+    let USDJPY: Double
+    let USDPHP: Double
 }

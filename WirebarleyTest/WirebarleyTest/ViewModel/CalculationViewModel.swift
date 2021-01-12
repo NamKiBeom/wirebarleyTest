@@ -33,9 +33,9 @@ class CalculationViewModel: CalculationViewModelType {
         repository.fetchRates()
             .subscribe(onNext: { element in
                 self.countrysData = [
-                    ExchangeRateData(송금국가: "미국(USD)", 수취국가: "한국(KRW)", 환율: element.USDKRW),
-                    ExchangeRateData(송금국가: "미국(USD)", 수취국가: "일본(JPY)", 환율: element.USDJPY),
-                    ExchangeRateData(송금국가: "미국(USD)", 수취국가: "필리핀(PHP)", 환율: element.USDPHP)
+                    ExchangeRateData(송금국가: "미국(USD)", 수취국가: "한국(KRW)", 환율: "\(element.USDKRW)"),
+                    ExchangeRateData(송금국가: "미국(USD)", 수취국가: "일본(JPY)", 환율: "\(element.USDJPY)"),
+                    ExchangeRateData(송금국가: "미국(USD)", 수취국가: "필리핀(PHP)", 환율: "\(element.USDPHP)")
                 ]
             }, onCompleted: {
                 print("data setting is successful.")
