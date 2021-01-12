@@ -19,6 +19,7 @@ class CalculationRepository: RatesFetchable {
                 switch result {
                 case .success(let data):
                     guard let response = try? JSONDecoder().decode(Response<Quote>.self, from: data) else {
+                        emitter.onError(NSError(domain: "decode fail", code: 9999, userInfo: nil))
                         return
                     }
                     emitter.onNext(response.quotes)
