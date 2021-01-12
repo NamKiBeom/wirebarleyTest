@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -101,7 +101,6 @@
 				24B1DCF92252C0FB12AACD69 /* Pods-WirebarleyTestTests.debug.xcconfig */,
 				5DE4695BDC5F2AF28B099DE6 /* Pods-WirebarleyTestTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,9 +139,10 @@
 		C18AAE2025AD61FA00730F30 /* WirebarleyTest */ = {
 			isa = PBXGroup;
 			children = (
-				C18AAE2125AD61FA00730F30 /* AppDelegate.swift */,
-				C18AAE2325AD61FA00730F30 /* SceneDelegate.swift */,
-				C18AAE2525AD61FA00730F30 /* ViewController.swift */,
+				C18AAE6325AD659E00730F30 /* App */,
+				C18AAE6525AD65B600730F30 /* ViewModel */,
+				C18AAE6425AD65AA00730F30 /* View */,
+				C18AAE6625AD65D100730F30 /* Model */,
 				C18AAE2725AD61FA00730F30 /* Main.storyboard */,
 				C18AAE2A25AD61FC00730F30 /* Assets.xcassets */,
 				C18AAE2C25AD61FC00730F30 /* LaunchScreen.storyboard */,
@@ -167,6 +167,37 @@
 				C18AAE4525AD61FD00730F30 /* Info.plist */,
 			);
 			path = WirebarleyTestUITests;
+			sourceTree = "<group>";
+		};
+		C18AAE6325AD659E00730F30 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C18AAE2125AD61FA00730F30 /* AppDelegate.swift */,
+				C18AAE2325AD61FA00730F30 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C18AAE6425AD65AA00730F30 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C18AAE2525AD61FA00730F30 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C18AAE6525AD65B600730F30 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C18AAE6625AD65D100730F30 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

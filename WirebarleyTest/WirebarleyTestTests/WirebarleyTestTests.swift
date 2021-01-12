@@ -6,6 +6,8 @@
 //
 
 import XCTest
+import RxSwift
+import RxCocoa
 @testable import WirebarleyTest
 
 class WirebarleyTestTests: XCTestCase {
