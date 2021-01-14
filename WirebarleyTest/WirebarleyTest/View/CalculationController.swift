@@ -21,13 +21,13 @@ class CalculationController: UIViewController {
     
     private let viewModel = CalculationViewModel()
     private let disposeBag = DisposeBag()
+    private var currentRate: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewBinding()
         timeLabel.text = Date().toString()
-        viewModel.quotes.onNext(viewModel.countrysData[0])
         countryPicker.delegate = self
     }
 }
@@ -43,8 +43,33 @@ private extension CalculationController {
             .disposed(by: disposeBag)
         
         viewModel.exchangeRate
+            .map { [weak self] in
+                return self?.valueConverting(value: $0) ?? ""
+            }
             .bind(to: exchangeRateLabel.rx.text)
             .disposed(by: disposeBag)
+        
+        viewModel.quotes.onNext(viewModel.countrysData[0])
+    }
+    
+    func valueConverting(value: String) -> String {
+        var components = value.components(separatedBy: " ")
+        guard let doubleValue = Double(components.first ?? "0"),
+              let chagedValue = Double(String(format: "%.2f", doubleValue)) else {
+            fatalError("String value doesn't convert Double.")
+        }
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        guard var result = numberFormatter.string(from: NSNumber(value: chagedValue)) else {
+            fatalError("Double value doesn't convert String")
+        }
+        currentRate = Double(result) ?? 0
+        
+        components.removeFirst()
+        result = result + " " + components.reduce("", { $0 + $1 + " " })
+        
+        return result
     }
 }
 
