@@ -21,6 +21,7 @@ class CalculationController: UIViewController {
     
     private let viewModel = CalculationViewModel()
     private let disposeBag = DisposeBag()
+    private let countrys = ["한국(KRW)", "일본(JPY)", "필리핀(PHP)"]
     private var currentRate: Double = 0
     
     override func viewDidLoad() {
@@ -49,12 +50,6 @@ private extension CalculationController {
             }
             .bind(to: exchangeRateLabel.rx.text)
             .disposed(by: disposeBag)
-        
-        if !viewModel.countrysData.isEmpty {
-            viewModel.quotes.onNext(viewModel.countrysData[0])
-        } else {
-            viewModel.quotes.onNext(ExchangeRateData(송금국가: "미국(USD)", 수취국가: "한국(KSW)", 환율: "재조회 필요"))
-        }
     }
     
     func valueConverting(value: String) -> String {
@@ -100,11 +95,11 @@ extension CalculationController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.countrysData.count
+        return countrys.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return viewModel.countrysData[row].수취국가
+        return countrys[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
