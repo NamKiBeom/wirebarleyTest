@@ -19,12 +19,31 @@ class CalculationController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var countryPicker: UIPickerView!
     
-    private let countrys = ["한국(KRW)", "일본(JPY)", "필리핀(PHP)"]
+    private let viewModel = CalculationViewModel()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewBinding()
+        viewModel.quotes.onNext(viewModel.countrysData[0])
         countryPicker.delegate = self
+    }
+}
+
+private extension CalculationController {
+    func viewBinding() {
+        viewModel.remittanceCountry
+            .bind(to: remittanceCountryLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.recipientCountry
+            .bind(to: recipientCountryLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.exchangeRate
+            .bind(to: exchangeRateLabel.rx.text)
+            .disposed(by: disposeBag)
     }
 }
 
@@ -34,14 +53,14 @@ extension CalculationController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return countrys.count
+        return viewModel.countrysData.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return countrys[row]
+        return viewModel.countrysData[row].수취국가
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(row)
+        viewModel.quotes.onNext(viewModel.countrysData[row])
     }
 }

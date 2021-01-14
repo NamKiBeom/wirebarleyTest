@@ -31,6 +31,7 @@ class CalculationViewModel: CalculationViewModelType {
         exchangeRate = quotes.map { $0.환율 }
         
         repository.fetchRates()
+            .subscribeOn(MainScheduler.instance)
             .subscribe(onNext: { element in
                 self.countrysData = [
                     ExchangeRateData(송금국가: "미국(USD)", 수취국가: "한국(KRW)", 환율: "\(element.USDKRW)"),
