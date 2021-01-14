@@ -27,6 +27,7 @@ class CalculationController: UIViewController {
         super.viewDidLoad()
         
         viewBinding()
+        keyboardToolbarSetting()
         timeLabel.text = Date().toString()
         countryPicker.delegate = self
     }
@@ -49,7 +50,11 @@ private extension CalculationController {
             .bind(to: exchangeRateLabel.rx.text)
             .disposed(by: disposeBag)
         
-        viewModel.quotes.onNext(viewModel.countrysData[0])
+        if !viewModel.countrysData.isEmpty {
+            viewModel.quotes.onNext(viewModel.countrysData[0])
+        } else {
+            viewModel.quotes.onNext(ExchangeRateData(송금국가: "미국(USD)", 수취국가: "한국(KSW)", 환율: "재조회 필요"))
+        }
     }
     
     func valueConverting(value: String) -> String {
@@ -59,17 +64,33 @@ private extension CalculationController {
             fatalError("String value doesn't convert Double.")
         }
         
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        guard var result = numberFormatter.string(from: NSNumber(value: chagedValue)) else {
-            fatalError("Double value doesn't convert String")
-        }
-        currentRate = Double(result) ?? 0
+        currentRate = chagedValue
+        var result = (components.first ?? "").toDecimal()
         
         components.removeFirst()
         result = result + " " + components.reduce("", { $0 + $1 + " " })
         
         return result
+    }
+    
+    func keyboardToolbarSetting() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneAction))
+        toolbar.items = [doneButton]
+        moneyTextField.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneAction() {
+        guard let moneyUnit = (recipientCountryLabel.text ?? "").getArrayAfterRegex(regex: "[A-Z]+").first,
+              let value = Double(moneyTextField.text ?? "") else {
+            return
+        }
+        
+        let result = "\(currentRate * value)".toDecimal()
+        resultLabel.text = "수취금액은 " + "\(result)" + " \(moneyUnit)" + " 입니다."
+        
+        view.endEditing(true)
     }
 }
 
@@ -88,5 +109,7 @@ extension CalculationController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         viewModel.quotes.onNext(viewModel.countrysData[row])
+        moneyTextField.text = ""
+        resultLabel.text = "송금액을 입력해주세요."
     }
 }
