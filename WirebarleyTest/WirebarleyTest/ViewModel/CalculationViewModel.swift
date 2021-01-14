@@ -14,6 +14,7 @@ protocol CalculationViewModelType {
     var remittanceCountry: Observable<String> { get }
     var recipientCountry: Observable<String> { get }
     var exchangeRate: Observable<String> { get }
+    var countrysData: [ExchangeRateData] { get }
 }
 
 class CalculationViewModel: CalculationViewModelType {
@@ -31,14 +32,17 @@ class CalculationViewModel: CalculationViewModelType {
         exchangeRate = quotes.map { $0.환율 }
         
         repository.fetchRates()
-            .subscribe(onNext: { element in
-                self.countrysData = [
-                    ExchangeRateData(송금국가: "미국(USD)", 수취국가: "한국(KRW)", 환율: "\(element.USDKRW)"),
-                    ExchangeRateData(송금국가: "미국(USD)", 수취국가: "일본(JPY)", 환율: "\(element.USDJPY)"),
-                    ExchangeRateData(송금국가: "미국(USD)", 수취국가: "필리핀(PHP)", 환율: "\(element.USDPHP)")
+            .subscribeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] element in
+                self?.countrysData = [
+                    ExchangeRateData(송금국가: "미국(USD)", 수취국가: "한국(KRW)", 환율: "\(element.USDKRW) KRW / USD"),
+                    ExchangeRateData(송금국가: "미국(USD)", 수취국가: "일본(JPY)", 환율: "\(element.USDJPY) JPY / USD"),
+                    ExchangeRateData(송금국가: "미국(USD)", 수취국가: "필리핀(PHP)", 환율: "\(element.USDPHP) PHP / USD")
                 ]
-            }, onCompleted: {
-                print("data setting is successful.")
+            }, onCompleted: { [weak self] in
+                self?.quotes.onNext(self?.countrysData[0] ?? ExchangeRateData(송금국가: "미국(USD)",
+                                                                              수취국가: "한국(KRW)",
+                                                                              환율: "0.0 KRW / USD"))
             }).disposed(by: disposeBag)
     }
 }

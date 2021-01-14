@@ -16,6 +16,8 @@
 		C116519425ADB3DC00B4B59B /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C116519325ADB3DC00B4B59B /* Response.swift */; };
 		C116519925ADB46E00B4B59B /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C116519825ADB46E00B4B59B /* Quote.swift */; };
 		C11651A125ADC67200B4B59B /* ExchangeRateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11651A025ADC67200B4B59B /* ExchangeRateData.swift */; };
+		C1613F9225B0762700F4B2D1 /* extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1613F9125B0762700F4B2D1 /* extension+Date.swift */; };
+		C185EFB825B0900100E144F5 /* extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185EFB725B0900100E144F5 /* extension+String.swift */; };
 		C18AAE2225AD61FA00730F30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AAE2125AD61FA00730F30 /* AppDelegate.swift */; };
 		C18AAE2425AD61FA00730F30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AAE2325AD61FA00730F30 /* SceneDelegate.swift */; };
 		C18AAE2625AD61FA00730F30 /* CalculationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AAE2525AD61FA00730F30 /* CalculationController.swift */; };
@@ -57,6 +59,8 @@
 		C116519325ADB3DC00B4B59B /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		C116519825ADB46E00B4B59B /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		C11651A025ADC67200B4B59B /* ExchangeRateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateData.swift; sourceTree = "<group>"; };
+		C1613F9125B0762700F4B2D1 /* extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Date.swift"; sourceTree = "<group>"; };
+		C185EFB725B0900100E144F5 /* extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+String.swift"; sourceTree = "<group>"; };
 		C18AAE1E25AD61FA00730F30 /* WirebarleyTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WirebarleyTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18AAE2125AD61FA00730F30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C18AAE2325AD61FA00730F30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				C116518625ADAFE900B4B59B /* APIService.swift */,
+				C1613F9125B0762700F4B2D1 /* extension+Date.swift */,
+				C185EFB725B0900100E144F5 /* extension+String.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -493,6 +499,8 @@
 				C116519925ADB46E00B4B59B /* Quote.swift in Sources */,
 				C116518025AD9F1500B4B59B /* CalculationViewModel.swift in Sources */,
 				C116518F25ADB32300B4B59B /* CalculationRepository.swift in Sources */,
+				C185EFB825B0900100E144F5 /* extension+String.swift in Sources */,
+				C1613F9225B0762700F4B2D1 /* extension+Date.swift in Sources */,
 				C116518725ADAFE900B4B59B /* APIService.swift in Sources */,
 				C18AAE2625AD61FA00730F30 /* CalculationController.swift in Sources */,
 				C18AAE2225AD61FA00730F30 /* AppDelegate.swift in Sources */,
