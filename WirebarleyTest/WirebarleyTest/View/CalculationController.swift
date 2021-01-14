@@ -50,6 +50,10 @@ private extension CalculationController {
             }
             .bind(to: exchangeRateLabel.rx.text)
             .disposed(by: disposeBag)
+        
+        if !viewModel.countrysData.isEmpty {
+            viewModel.quotes.onNext(viewModel.countrysData[0])
+        }
     }
     
     func valueConverting(value: String) -> String {
