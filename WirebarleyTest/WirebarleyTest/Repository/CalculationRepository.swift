@@ -23,6 +23,7 @@ class CalculationRepository: RatesFetchable {
                         return
                     }
                     emitter.onNext(response.quotes)
+                    emitter.onCompleted()
                 case .failure(let error):
                     emitter.onError(error)
                 }
