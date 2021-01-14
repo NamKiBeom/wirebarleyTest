@@ -26,6 +26,7 @@ class CalculationController: UIViewController {
         super.viewDidLoad()
         
         viewBinding()
+        timeLabel.text = Date().toString()
         viewModel.quotes.onNext(viewModel.countrysData[0])
         countryPicker.delegate = self
     }
