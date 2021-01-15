@@ -19,10 +19,17 @@ class CalculationController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var countryPicker: UIPickerView!
     
-    private let viewModel = CalculationViewModel()
+    private var viewModel: CalculationViewModelType
     private let disposeBag = DisposeBag()
     private let countrys = ["한국(KRW)", "일본(JPY)", "필리핀(PHP)"]
     private var currentRate: Double = 0
+    
+    required init?(coder: NSCoder) {
+        let apiService = APIService()
+        let repository = CalculationRepository()
+        viewModel = CalculationViewModel(repository: repository, apiService: apiService)
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

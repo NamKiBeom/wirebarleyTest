@@ -25,13 +25,13 @@ class CalculationViewModel: CalculationViewModelType {
     var disposeBag: DisposeBag = DisposeBag()
     var countrysData: [ExchangeRateData] = []
     
-    init(repository: RatesFetchable = CalculationRepository()) {
+    init(repository: RatesFetchable, apiService: FetchAPIData) {
         quotes = PublishSubject<ExchangeRateData>()
         remittanceCountry = quotes.map { $0.송금국가 }
         recipientCountry = quotes.map { $0.수취국가 }
         exchangeRate = quotes.map { $0.환율 }
         
-        repository.fetchRates()
+        repository.fetchRates(apiService: apiService)
             .subscribeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] element in
                 self?.countrysData = [
@@ -39,6 +39,8 @@ class CalculationViewModel: CalculationViewModelType {
                     ExchangeRateData(송금국가: "미국(USD)", 수취국가: "일본(JPY)", 환율: "\(element.USDJPY) JPY / USD"),
                     ExchangeRateData(송금국가: "미국(USD)", 수취국가: "필리핀(PHP)", 환율: "\(element.USDPHP) PHP / USD")
                 ]
+            }, onError: { [weak self] error in
+                self?.quotes.onError(error)
             }, onCompleted: { [weak self] in
                 self?.quotes.onNext(self?.countrysData[0] ?? ExchangeRateData(송금국가: "미국(USD)",
                                                                               수취국가: "한국(KRW)",
