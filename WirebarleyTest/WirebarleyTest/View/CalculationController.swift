@@ -89,11 +89,16 @@ private extension CalculationController {
     
     @objc func doneAction() {
         guard let moneyUnit = (recipientCountryLabel.text ?? "").getArrayAfterRegex(regex: "[A-Z]+").first,
-              let value = Double(moneyTextField.text ?? "") else {
+              let value = Double(moneyTextField.text ?? ""),
+              (value > 0.0 && value <= 10000.0) else {
+            resultLabel.textColor = .red
+            resultLabel.text = "송금액이 올바르지 않습니다."
+            view.endEditing(true)
             return
         }
         
         let result = "\(currentRate * value)".toDecimal()
+        resultLabel.textColor = .black
         resultLabel.text = "수취금액은 " + "\(result)" + " \(moneyUnit)" + " 입니다."
         
         view.endEditing(true)
@@ -116,6 +121,7 @@ extension CalculationController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         viewModel.quotes.onNext(viewModel.countrysData[row])
         moneyTextField.text = ""
+        resultLabel.textColor = .black
         resultLabel.text = "송금액을 입력해주세요."
     }
 }
