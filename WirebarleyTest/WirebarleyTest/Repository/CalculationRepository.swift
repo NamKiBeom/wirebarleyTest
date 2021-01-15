@@ -9,13 +9,15 @@ import Foundation
 import RxSwift
 
 protocol RatesFetchable {
-    func fetchRates() -> Observable<Quote>
+    func fetchRates(apiService: FetchAPIData) -> Observable<Quote>
 }
 
 class CalculationRepository: RatesFetchable {
-    func fetchRates() -> Observable<Quote> {
-        return Observable.create({ emitter in
-            APIService.shared.request(urlString: url, completion: { result in
+    private let url = "http://api.currencylayer.com/live?access_key=7063bbdf25d9f939368df1c8087adde1"
+    
+    func fetchRates(apiService: FetchAPIData) -> Observable<Quote> {
+        return Observable.create({ [weak self] emitter in
+            apiService.request(urlString: self?.url ?? "", completion: { result in
                 switch result {
                 case .success(let data):
                     guard let response = try? JSONDecoder().decode(Response<Quote>.self, from: data) else {

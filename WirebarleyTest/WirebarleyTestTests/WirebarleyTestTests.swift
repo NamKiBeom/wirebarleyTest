@@ -12,54 +12,104 @@ import RxCocoa
 
 class WirebarleyTestTests: XCTestCase {
     let disposeBag = DisposeBag()
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    class MockAPIService: FetchAPIData {
+        private let networkChecker: Bool
+        
+        init(checker: Bool) {
+            self.networkChecker = checker
+        }
+        
+        func request(urlString: String, completion: @escaping (Result<Data, NetworkError>) -> Void) {
+            if networkChecker {
+                let quote = Quote(USDKRW: 1.234, USDJPY: 2.345, USDPHP: 3.456)
+                guard let data = try? JSONEncoder().encode(quote) else {
+                    return
+                }
+                completion(.success(data))
+            } else {
+                completion(.failure(.responseError))
+            }
+        }
     }
     
-    func testCalculationRepositoryDecodeCheck() throws {
+    class MockRepository: RatesFetchable {
+        let url: String
+        
+        init(url: String) {
+            self.url = url
+        }
+        
+        func fetchRates(apiService: FetchAPIData) -> Observable<Quote> {
+            return Observable.create({ [weak self] emitter in
+                guard let self = self else {
+                    fatalError()
+                }
+                
+                apiService.request(urlString: self.url, completion: { result in
+                    switch result {
+                    case .success(let data):
+                        guard let response = try? JSONDecoder().decode(Response<Quote>.self, from: data) else {
+                            emitter.onError(NSError(domain: "decode fail", code: 9999, userInfo: nil))
+                            return
+                        }
+                        emitter.onNext(response.quotes)
+                        emitter.onCompleted()
+                    case .failure(let error):
+                        emitter.onError(error)
+                    }
+                })
+                
+                return Disposables.create()
+            })
+        }
+    }
+    
+    func testCalculationRepositoryDependencyInjection() throws {
         let repository = CalculationRepository()
-        let observable = repository.fetchRates()
-        var observableError: Error?
-
-        observable.subscribe(onNext: { element in
-            XCTAssertNotNil(element)
-        }, onError: { error in
-            observableError = error
-        }).disposed(by: disposeBag)
+        let successMock = MockAPIService(checker: true)
         
-        XCTAssertNil(observableError)
+        repository.fetchRates(apiService: successMock)
+            .subscribe(onNext: { element in
+                XCTAssertEqual(element.USDKRW, 1.234)
+                XCTAssertEqual(element.USDJPY, 2.345)
+                XCTAssertEqual(element.USDPHP, 3.456)
+            }).disposed(by: disposeBag)
+        
+        let errorMock = MockAPIService(checker: false)
+        repository.fetchRates(apiService: errorMock)
+            .subscribe(onError: { error in
+                guard let error = error as? NetworkError else {
+                    return
+                }
+                XCTAssertEqual(error, .responseError)
+            }).disposed(by: disposeBag)
     }
     
-    func testCalculationViewModelSubscribeCheck() throws {
-        let viewModel = CalculationViewModel()
+    func testCalculationViewModelDependencyInjection() throws {
+        let mockRepository = MockRepository(url: "https://mockurl")
+        let successMock = MockAPIService(checker: true)
         
-        var remittanceCountry: String?
-        var recipientCountry: String?
-        var exchangeRate: String?
+        let networkOnViewModel = CalculationViewModel(repository: mockRepository, apiService: successMock)
         
-        viewModel.remittanceCountry.subscribe(onNext: { element in
-            remittanceCountry = element
-        }, onCompleted: {
-            XCTAssertEqual(remittanceCountry, "미국")
-        }).disposed(by: disposeBag)
+        networkOnViewModel.exchangeRate
+            .subscribe(onNext: { element in
+                XCTAssertEqual(element, "1.234 KRW / USD")
+            }).disposed(by: disposeBag)
         
-        viewModel.recipientCountry.subscribe(onNext: { element in
-            recipientCountry = element
-        }, onCompleted: {
-            XCTAssertEqual(recipientCountry, "한국")
-        }).disposed(by: disposeBag)
+        networkOnViewModel.quotes.onNext(ExchangeRateData(송금국가: "미국(USD)",
+                                                 수취국가: "한국(KSW)",
+                                                 환율: "1.234 KRW / USD"))
         
-        viewModel.exchangeRate.subscribe(onNext: { element in
-            exchangeRate = element
-        }, onCompleted: {
-            XCTAssertEqual(exchangeRate, "1.0")
-        }).disposed(by: disposeBag)
+        let failMock = MockAPIService(checker: false)
+        let networkOffViewModel = CalculationViewModel(repository: mockRepository, apiService: failMock)
         
-        viewModel.quotes.onNext(ExchangeRateData(송금국가: "미국", 수취국가: "한국", 환율: "1.0"))
+        networkOffViewModel.exchangeRate
+            .subscribe(onError: { error in
+                guard let error = error as? NetworkError else {
+                    return
+                }
+                XCTAssertEqual(error, .responseError)
+            }).disposed(by: disposeBag)
     }
 }
